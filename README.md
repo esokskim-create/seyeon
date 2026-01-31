@@ -1,0 +1,320 @@
+[index.html](https://github.com/user-attachments/files/24978255/index.html)
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김세연 박사 - 스마트시티안전융합 디지털 명함</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f3f4f6;
+        }
+        /* 명함 비율 (90x50mm) 유지 */
+        .card-aspect {
+            aspect-ratio: 90 / 50;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .pattern-overlay {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10 px-4">
+
+    <!-- 컨트롤 패널 -->
+    <div class="bg-white p-4 rounded-xl shadow-lg mb-8 w-full max-w-md flex justify-center space-x-4">
+        <button onclick="showMode('image')" id="btn-image" class="px-6 py-2 rounded-lg font-bold bg-blue-900 text-white transition hover:bg-blue-800">
+            <i class="fas fa-image mr-2"></i>이미지 명함용
+        </button>
+        <button onclick="showMode('web')" id="btn-web" class="px-6 py-2 rounded-lg font-bold bg-gray-200 text-gray-700 transition hover:bg-gray-300">
+            <i class="fas fa-mobile-alt mr-2"></i>모바일 웹 명함
+        </button>
+    </div>
+
+    <!-- 1. 이미지 명함 섹션 (캡처용) -->
+    <div id="mode-image" class="flex flex-col gap-8 w-full max-w-4xl items-center">
+        <div class="text-center text-gray-500 text-sm mb-2">
+            * 아래 명함을 캡처(스크린샷)하여 이미지로 사용하세요.
+        </div>
+
+        <!-- 앞면 (Front) -->
+        <div class="w-[540px] h-[300px] bg-white shadow-2xl relative overflow-hidden flex flex-col justify-between p-8 text-slate-800 border border-gray-200">
+            <!-- 배경 장식 -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full -translate-y-1/2 translate-x-1/2 opacity-50"></div>
+            
+            <!-- 상단 로고 영역 -->
+            <div class="flex justify-between items-start z-10">
+                <div class="flex flex-col gap-1">
+                    <div class="flex items-center gap-2 text-blue-900 font-bold text-sm">
+                        <i class="fas fa-shield-alt"></i> (사)한국선진교통문화연합회
+                        <span class="text-[10px] bg-blue-100 text-blue-800 px-1 rounded">공익법인</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-slate-600 font-bold text-sm">
+                        <i class="fas fa-city"></i> 스마트도시문화연구소
+                    </div>
+                </div>
+                <i class="fas fa-network-wired text-4xl text-blue-100"></i>
+            </div>
+
+            <!-- 중앙 이름 영역 -->
+            <div class="z-10 mt-4">
+                <div class="flex items-end gap-3 mb-1">
+                    <h1 class="text-3xl font-black text-slate-900 tracking-tight">김 세 연</h1>
+                    <span class="text-blue-700 font-bold pb-1">공학박사 (Ph.D.)</span>
+                </div>
+                <p class="text-slate-500 text-sm font-medium">스마트시티안전융합 전공</p>
+            </div>
+
+            <!-- 하단 직함 및 정보 -->
+            <div class="z-10 border-t-2 border-blue-900 pt-4 mt-auto">
+                <div class="flex justify-between items-end">
+                    <div class="text-sm space-y-1">
+                        <p><strong>이사장</strong> | 한국선진교통문화연합회</p>
+                        <p><strong>대표/소장</strong> | 스마트도시문화연구소</p>
+                    </div>
+                    <div class="text-right text-xs text-slate-500 space-y-0.5">
+                        <p><i class="fas fa-mobile-alt w-4 text-center"></i> 010-7444-0110</p>
+                        <p><i class="fas fa-phone w-4 text-center"></i> 02-866-7283</p>
+                        <p><i class="fas fa-envelope w-4 text-center"></i> seyeon2015@naver.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 뒷면 (Back) -->
+        <div class="w-[540px] h-[300px] gradient-bg shadow-2xl relative overflow-hidden flex flex-col justify-center items-center p-8 text-white pattern-overlay">
+            <div class="w-full h-full flex flex-col justify-between z-10">
+                <!-- 상단 슬로건 -->
+                <div class="text-center mt-4">
+                    <h2 class="text-2xl font-bold leading-relaxed">
+                        안전한 교통문화,<br>
+                        사람 중심의 스마트 도시
+                    </h2>
+                    <p class="mt-2 text-blue-100 font-light text-sm opacity-90">
+                        도시 문제를 연구하고 미래를 기획합니다.
+                    </p>
+                </div>
+                
+                <!-- 중앙 키워드 -->
+                <div class="flex justify-center gap-4 text-xs font-medium opacity-90 my-2">
+                    <span class="border border-white/30 px-2 py-1 rounded-full">사고예방</span>
+                    <span class="border border-white/30 px-2 py-1 rounded-full">교통선진화</span>
+                    <span class="border border-white/30 px-2 py-1 rounded-full">출판·기획</span>
+                </div>
+
+                <!-- 하단 후원 및 주소 정보 -->
+                <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm border border-white/10">
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="text-left space-y-2">
+                            <div>
+                                <p class="text-[10px] text-blue-200 font-bold mb-0.5">공익법인 지정기부단체 후원계좌</p>
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-university text-sm"></i>
+                                    <span class="text-sm font-bold tracking-wide">우리은행 1005-603-280074</span>
+                                </div>
+                            </div>
+                            <div class="text-[11px] opacity-80 flex items-start gap-1">
+                                <i class="fas fa-map-marker-alt mt-0.5"></i>
+                                <span>경기도 수원시 팔달구 팔달로 31, 804호</span>
+                            </div>
+                        </div>
+                        <!-- QR 코드 영역 (필요시 실제 QR로 대체) -->
+                        <div class="flex flex-col items-center justify-center min-w-[50px]">
+                            <i class="fas fa-qrcode text-3xl opacity-80"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 모바일 웹 명함 섹션 (인터랙티브) -->
+    <div id="mode-web" class="hidden w-full max-w-sm bg-white shadow-2xl rounded-3xl overflow-hidden border border-gray-200 mb-10">
+        <!-- 헤더 / 프로필 영역 -->
+        <div class="gradient-bg pt-10 pb-8 px-6 text-center text-white relative">
+            <div class="absolute top-0 left-0 w-full h-full pattern-overlay opacity-30"></div>
+            
+            <div class="relative z-10">
+                <div class="w-24 h-24 bg-white rounded-full mx-auto mb-3 border-4 border-white/30 flex items-center justify-center overflow-hidden shadow-lg">
+                    <i class="fas fa-user-tie text-4xl text-gray-300"></i>
+                </div>
+                <h1 class="text-2xl font-bold">김 세 연</h1>
+                <p class="text-blue-100 text-sm font-medium mt-1">공학박사 (Ph.D.)</p>
+                <p class="text-white/80 text-xs mt-1">스마트시티안전융합 전공</p>
+            </div>
+        </div>
+
+        <!-- 주요 직함 -->
+        <div class="bg-white px-5 py-5 -mt-4 rounded-t-3xl relative z-10 text-center border-b border-gray-100">
+            <div class="space-y-3">
+                <div class="p-3 bg-blue-50 rounded-xl border border-blue-100">
+                    <div class="flex justify-center items-center gap-2 mb-1">
+                        <span class="text-xs text-blue-600 font-bold">사단법인</span>
+                        <span class="text-[10px] bg-blue-600 text-white px-1.5 rounded-sm">공익법인</span>
+                    </div>
+                    <h3 class="font-bold text-gray-800">한국선진교통문화연합회</h3>
+                    <p class="text-sm text-gray-600 mt-1">이사장</p>
+                </div>
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                    <p class="text-xs text-slate-600 font-bold mb-1">연구소</p>
+                    <h3 class="font-bold text-gray-800">스마트도시문화연구소</h3>
+                    <p class="text-sm text-gray-600 mt-1">대표 / 소장</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 액션 버튼 -->
+        <div class="px-6 py-4 grid grid-cols-4 gap-2">
+            <a href="tel:01074440110" class="flex flex-col items-center gap-2 group">
+                <div class="w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-md group-hover:bg-blue-700 transition">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <span class="text-xs text-gray-600">휴대폰</span>
+            </a>
+            <a href="tel:028667283" class="flex flex-col items-center gap-2 group">
+                <div class="w-11 h-11 bg-indigo-600 rounded-full flex items-center justify-center text-white shadow-md group-hover:bg-indigo-700 transition">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <span class="text-xs text-gray-600">사무실</span>
+            </a>
+            <a href="mailto:seyeon2015@naver.com" class="flex flex-col items-center gap-2 group">
+                <div class="w-11 h-11 bg-yellow-500 rounded-full flex items-center justify-center text-white shadow-md group-hover:bg-yellow-600 transition">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <span class="text-xs text-gray-600">이메일</span>
+            </a>
+            <button onclick="shareCard()" class="flex flex-col items-center gap-2 group">
+                <div class="w-11 h-11 bg-gray-700 rounded-full flex items-center justify-center text-white shadow-md group-hover:bg-gray-800 transition">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <span class="text-xs text-gray-600">공유</span>
+            </button>
+        </div>
+
+        <!-- 상세 정보 (아코디언) -->
+        <div class="px-5 pb-8 space-y-3">
+            <!-- 후원 계좌 정보 (강조) -->
+            <div class="bg-blue-50/80 border border-blue-200 rounded-lg p-4">
+                <h4 class="text-sm font-bold text-blue-800 mb-2 flex items-center">
+                    <i class="fas fa-hand-holding-heart mr-2"></i> 후원 안내
+                </h4>
+                <p class="text-xs text-gray-600 mb-2">
+                    한국선진교통문화연합회는 <strong>공익법인 지정기부단체</strong>입니다.
+                </p>
+                <div class="bg-white p-2 rounded border border-blue-100 flex justify-between items-center">
+                    <div class="text-xs">
+                        <span class="block text-gray-400 text-[10px]">우리은행</span>
+                        <span class="font-bold text-slate-700" id="account-num">1005-603-280074</span>
+                    </div>
+                    <button onclick="copyAccount()" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded hover:bg-blue-200 transition">
+                        복사
+                    </button>
+                </div>
+            </div>
+
+            <details class="group bg-white border border-gray-200 rounded-lg open:shadow-sm transition">
+                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-3.5">
+                    <span class="flex items-center gap-2 text-sm"><i class="fas fa-briefcase text-slate-500"></i> 주요 활동 분야</span>
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-gray-400"></i></span>
+                </summary>
+                <div class="text-gray-600 text-sm p-4 pt-0 border-t border-gray-100 mt-2">
+                    <ul class="list-disc pl-4 space-y-1 text-xs">
+                        <li><strong>사고예방:</strong> 교통안전 캠페인 및 교육</li>
+                        <li><strong>교통선진화:</strong> 선진 교통문화 정착을 위한 연구</li>
+                        <li><strong>스마트도시:</strong> 도시문제 해결형 연구 및 기획</li>
+                        <li><strong>출판·기획:</strong> 관련 전문 서적 및 콘텐츠 기획</li>
+                    </ul>
+                </div>
+            </details>
+
+             <details class="group bg-white border border-gray-200 rounded-lg open:shadow-sm transition">
+                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-3.5">
+                    <span class="flex items-center gap-2 text-sm"><i class="fas fa-map-marker-alt text-red-500"></i> 오시는 길</span>
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-gray-400"></i></span>
+                </summary>
+                <div class="text-gray-600 text-sm p-4 pt-0 border-t border-gray-100 mt-2">
+                    <p class="mb-2 text-xs">경기도 수원시 팔달구 팔달로 31, 804호</p>
+                    <a href="https://map.naver.com/v5/search/경기도 수원시 팔달구 팔달로 31" target="_blank" class="inline-block bg-gray-100 text-xs px-3 py-1.5 rounded hover:bg-gray-200 text-gray-700">
+                        <i class="fas fa-map-marked-alt mr-1"></i>지도 보기
+                    </a>
+                </div>
+            </details>
+        </div>
+        
+        <div class="bg-gray-50 py-4 text-center text-xs text-gray-400">
+            &copy; Smart City Culture Research Institute
+        </div>
+    </div>
+
+    <script>
+        function showMode(mode) {
+            const imgSection = document.getElementById('mode-image');
+            const webSection = document.getElementById('mode-web');
+            const btnImage = document.getElementById('btn-image');
+            const btnWeb = document.getElementById('btn-web');
+
+            if (mode === 'image') {
+                imgSection.classList.remove('hidden');
+                imgSection.classList.add('flex');
+                webSection.classList.add('hidden');
+                
+                btnImage.classList.replace('bg-gray-200', 'bg-blue-900');
+                btnImage.classList.replace('text-gray-700', 'text-white');
+                btnWeb.classList.replace('bg-blue-900', 'bg-gray-200');
+                btnWeb.classList.replace('text-white', 'text-gray-700');
+            } else {
+                imgSection.classList.add('hidden');
+                imgSection.classList.remove('flex');
+                webSection.classList.remove('hidden');
+
+                btnWeb.classList.replace('bg-gray-200', 'bg-blue-900');
+                btnWeb.classList.replace('text-gray-700', 'text-white');
+                btnImage.classList.replace('bg-blue-900', 'bg-gray-200');
+                btnImage.classList.replace('text-white', 'text-gray-700');
+            }
+        }
+
+        function shareCard() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '김세연 박사 디지털 명함',
+                    text: '한국선진교통문화연합회 / 스마트도시문화연구소',
+                    url: window.location.href,
+                })
+                .then(() => console.log('공유 성공'))
+                .catch((error) => console.log('공유 실패', error));
+            } else {
+                const dummy = document.createElement("textarea");
+                document.body.appendChild(dummy);
+                dummy.value = window.location.href;
+                dummy.select();
+                document.execCommand("copy");
+                document.body.removeChild(dummy);
+                alert("명함 주소가 복사되었습니다.");
+            }
+        }
+
+        function copyAccount() {
+            const accountText = "1005-603-280074";
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = accountText;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            alert("후원 계좌번호가 복사되었습니다: " + accountText);
+        }
+    </script>
+</body>
+</html>
